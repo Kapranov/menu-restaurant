@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<html lang="en">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ordr: Rstaurant Mnu</title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <!-- Foundation CSS CDN -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/foundation/5.5.0/css/foundation.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/foundation/5.5.0/css/normalize.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <script type="text/x-handlebars" data-template-name="application">
+      <div class="row">
+        <div class="small-12 small-centered columns">
+          <h1>Ordr</h1>
+          <hr>
+
+          <p>{{outlet}}</p>
+        </div>
+      </div>
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="index">
+      Hello, Ember!
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="tables">
+      <div class="row">
+        <div class="large-4 columns" id="tables">
+          {{partial "tableMenu"}}
+         </div>
+        <div class="large-8 columns" id="order">
+          {{outlet}}
+        </div>
+      </div>
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="tableMenu">
+      <h2>Tables</h2>
+
+      {{#each table in controller}}
+        {{#link-to 'table' table class="panel small-6 columns"}} {{table.id}} {{/link-to}}
+      {{/each}}
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="table">
+      <h2>Table <span>{{id}}</span></h2>
+    </script>
+
+
+  <script src="js/libs/jquery-1.10.2.js"></script>
+  <!-- Foundation JS CDN -->
+  <script src="//cdn.jsdelivr.net/foundation/5.5.0/js/foundation/foundation.js"></script>
+  <!-- Modernizr CDN -->
+  <script src="//cdn.jsdelivr.net/foundation/5.5.0/js/vendor/modernizr.js"></script>
+  <script src="js/libs/handlebars-v2.0.0.js"></script>
+  <script src="js/libs/ember-1.9.1.js"></script>
+  <script src="js/libs/ember-data.js"></script>
+  <script src="js/app.js"></script>
+  <!-- to activate the test runner, add the "?test" query string parameter -->
+  <script src="tests/runner.js"></script>
+</body>
+</html>
